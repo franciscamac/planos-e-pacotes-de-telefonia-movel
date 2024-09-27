@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Planos</title>
+    <meta CHARSET="UTF-8">
+</head>
+<body>
+<h1>Lista de Planos</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Ações</th>
+    </tr>
+    <tr th:each="plano : ${planos}">
+        <td th:text="${plano.id}"></td>
+        <td th:text="${plano.nome}"></td>
+        <td th:text="${plano.preco}"></td>
+        <td>
+            <a th:href="@{/planos/{id}(id=${plano.id})}">Editar</a>
+            <a th:href="@{/planos/deletar/{id}(id=${plano.id})}">Deletar</a>
+        </td>
+    </tr>
+</table>
+<a href="/planos/novo">Novo Plano</a>
+</body>
+</html>
